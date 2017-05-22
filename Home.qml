@@ -52,6 +52,7 @@ Item {
                 home.focus = false
                 game.visible =true
                 game.focus = true
+                game.creatcomponent()
             }
         }
         states: State {

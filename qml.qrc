@@ -8,5 +8,7 @@
         <file>Missile.qml</file>
         <file>Missile/missile.png</file>
         <file>Home.qml</file>
+        <file>Bonus.qml</file>
+        <file>Bonus/Star.png</file>
     </qresource>
 </RCC>
