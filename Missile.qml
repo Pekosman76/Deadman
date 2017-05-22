@@ -30,8 +30,8 @@ Image {
                 else if (parent.x <player2.x+20 && parent.x >player2.x-20  && parent.y <player2.y+20 && parent.y >player2.y-20 && game.textscores1===2)
                 {
                     game.textscores1 +=1
-                    player2.destroy()
                     parent.destroy()
+                    game.txtw = "Player 1"
                     restart()
                 }
             }
@@ -47,8 +47,8 @@ Image {
                 else if(parent.x <player1.x+20 && parent.x >player1.x-20  && parent.y <player1.y+20 && parent.y >player1.y-20 && game.textscores2 ===2)
                 {
                     game.textscores2 +=1
-                    player1.destroy()
                     parent.destroy()
+                    game.txtw = "Player 2"
                     restart()
 
                 }
@@ -57,11 +57,11 @@ Image {
         }
 
         function restart(){
+            game.destroycomponent()
             home.visible= true
             home.focus = true
             game.visible =false
             game.focus = false
-            game.destroycomponent()
         }
     }
 }

@@ -10,12 +10,12 @@ Item {
     property var character :[]
     property var missilecomponent :Qt.createComponent("Missile.qml")
     property var missile :[]
-    property var bousmissile : []
     property var bonuscomponent : Qt.createComponent("Bonus.qml")
     property var bonus : []
     property int i :1
     property int textscores1 : 0
     property int textscores2 : 0
+    property string txtw : ""
 
     function creatcomponent(){
         character[1]=charactercomponent.createObject(parent, {"x":0, "y": game.height/2, "img": "character/ca.png", "isMovingRight" : true});
@@ -23,14 +23,17 @@ Item {
 
         textscores1 = 0
         textscores2 = 0
-        bonustimer.start()
+        bonustimer.restart()
         i=1
     }
 
     function destroycomponent(){
-        bonustimer.destroy()
-        character[1].destroy()
-        character[2].destroy()
+
+        home.winner = txtw
+        bonus[1].visible = false
+        character[1].visible=false
+        character[2].visible=false
+        bonustimer.stop()
     }
 
 
@@ -43,7 +46,6 @@ Item {
         onTriggered: {
 
             bonus[1]= bonuscomponent.createObject(parent,{"x" : getNumber()})
-
         }
     }
 
@@ -145,7 +147,7 @@ Item {
     }
 
     Rectangle{
-        width: 50
+        width: 150
         height: 20
         color : "#D8D8D8"
         anchors.top : parent.top
@@ -154,6 +156,13 @@ Item {
         Row{
             anchors.centerIn: parent
             spacing: 5
+            Text{
+
+                id : txtplayer1
+                color: "#07000d"
+                text: "Player 1 "
+
+            }
             Text{
 
                 id : score1
@@ -165,6 +174,15 @@ Item {
                 id : score2
                 color: "#07000d"
                 text: textscores2.toString()
+
+            }
+
+            Text{
+
+                id : txtplayer2
+                color: "#07000d"
+                text: "Player 2"
+
 
             }
         }

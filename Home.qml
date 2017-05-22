@@ -3,18 +3,32 @@ import QtQuick 2.0
 Item {
     width: parent.width
     height: parent.height
+    property string winner :""
 
     Text{
 
         id: titre
-        x: 134
-        y: 50
         font.family: "DejaVu Sans"
         font.bold: true
         text: "DEADMAN"
         style: Text.Normal
         font.pixelSize: 50
         anchors.bottom: buttonLaunchGame.top
+        anchors.bottomMargin: 20
+        anchors.horizontalCenter:  parent.horizontalCenter
+
+    }
+
+
+    Text{
+
+        id: win
+        font.family: "DejaVu Sans"
+        font.bold: true
+        text: "Winner : "+ winner
+        style: Text.Normal
+        font.pixelSize: 20
+        anchors.top: buttonLaunchGame.bottom
         anchors.bottomMargin: 20
         anchors.horizontalCenter:  parent.horizontalCenter
 
