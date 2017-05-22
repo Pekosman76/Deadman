@@ -4,10 +4,11 @@ Image {
     id: mis
 
     property string img
-    property bool moveinputright: false
-    property bool moveinputleft: false
+    property bool movemisright: false
+    property bool movemissleft: false
     property var player1 : game.character[1]
     property var player2 : game.character[2]
+    property int speedmis : 6
 
     z:3
     width : 30
@@ -18,9 +19,9 @@ Image {
         running: true
         repeat: true
         onTriggered: {
-            if (moveinputright==true)
+            if (movemisright==true)
             {
-                parent.x+=5
+                parent.x+=speedmis
 
                 if ( parent.x <player2.x+20 && parent.x >player2.x-20  && parent.y <player2.y+20 && parent.y >player2.y-20 && game.textscores1!==2)
                 {
@@ -35,9 +36,9 @@ Image {
                     restart()
                 }
             }
-            else  if (moveinputleft==true)
+            else  if (movemissleft==true)
             {
-                parent.x-=5
+                parent.x-=speedmis
 
                 if ( parent.x <player1.x+20 && parent.x >player1.x-20  && parent.y <player1.y+20 && parent.y >player1.y-20 && game.textscores2!==2)
                 {
@@ -53,7 +54,6 @@ Image {
 
                 }
             }
-
         }
 
         function restart(){

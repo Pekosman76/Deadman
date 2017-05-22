@@ -15,7 +15,7 @@ Item {
     property int i :1
     property int textscores1 : 0
     property int textscores2 : 0
-    property string txtw : ""
+    property string txtw : "Player"
 
     function creatcomponent(){
         character[1]=charactercomponent.createObject(parent, {"x":0, "y": game.height/2, "img": "character/ca.png", "isMovingRight" : true});
@@ -35,7 +35,6 @@ Item {
         character[2].visible=false
         bonustimer.stop()
     }
-
 
     Timer{
 
@@ -95,14 +94,14 @@ Item {
                 character[2].moveintputright = true
         }
 
-
         if (event.key ===  Qt.Key_W) {
 
             if (event.isAutoRepeat) return;
             else
             {
                 missile[i]=missilecomponent.createObject(parent, {"x":character[1].x, "y": character[1].y, "img" : "qrc:/Missile/missile.png"});
-                missile[i].moveinputright= true
+                missile[i].movemisright= true
+                console.log(missile[i].movemisright)
                 i++
             }
         }
@@ -110,15 +109,15 @@ Item {
             if (event.isAutoRepeat) return;
             else
             {
-                missile[i]=missilecomponent.createObject(parent, {"x":character[2].x, "y": character[2].y, "img" : "qrc:/Missile/missile.png"});
-                missile[i].moveinputleft = true
+                missile[i]=missilecomponent.createObject(parent, {"x":character[2].x, "y": character[2].y, "img" : "qrc:/Missile/missile.png", "movemissleft" : true});
+                missile[i].movemissleft = true
                 missile[i].rotation = 180
                 i++
             }
         }
     }
     Keys.onReleased: {
-        if(event.isAutoRepeat) return ;
+        if (event.isAutoRepeat) return;
 
         if ((event.key === Qt.Key_T)) {
             character[1].moveinputup = false;
@@ -157,36 +156,23 @@ Item {
             anchors.centerIn: parent
             spacing: 5
             Text{
-
-                id : txtplayer1
                 color: "#07000d"
                 text: "Player 1 "
-
             }
             Text{
-
-                id : score1
                 color: "#07000d"
                 text: textscores1.toString()
             }
             Text{
-
-                id : score2
                 color: "#07000d"
                 text: textscores2.toString()
-
             }
 
             Text{
-
-                id : txtplayer2
                 color: "#07000d"
                 text: "Player 2"
-
-
             }
         }
-
     }
     function randomNumber() {
         return Math.random()*(root.width/1.25);
@@ -195,6 +181,5 @@ Item {
     function getNumber() {
         return game.randomNumber();
     }
-
 }
 

@@ -3,19 +3,16 @@ import QtQuick 2.0
 
 Image {
 
-    //property string img
-
     id : bonus
     width: 30
     height:30
     source: "Bonus/Star.png"
     y:0
     z:2
+    fillMode: Image.Stretch
 
     property var player1 : game.character[1]
     property var player2 : game.character[2]
-
-    fillMode: Image.Stretch
 
     Timer{
 
@@ -33,7 +30,6 @@ Image {
             {
                 //console.log("touchééééééééééééééééééééééééé")
             }
-
         }
     }
 }

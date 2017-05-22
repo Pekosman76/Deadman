@@ -12,7 +12,7 @@ Image {
     property bool moveinputleft :false
     property bool isMovingRight :false;
     property bool isMovingLeft :false;
-    property int speed : 5
+    property int speed : 4
 
     AnimatedSprite {
         id:sprite_right
@@ -62,7 +62,6 @@ Image {
             if ( parent.y > (game.height-30))
                 parent.y=(game.height-30)
             else
-
                 parent.y+=speed;
         }
     }

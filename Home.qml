@@ -3,7 +3,7 @@ import QtQuick 2.0
 Item {
     width: parent.width
     height: parent.height
-    property string winner :""
+    property string winner :"Player "
 
     Text{
 
@@ -16,9 +16,7 @@ Item {
         anchors.bottom: buttonLaunchGame.top
         anchors.bottomMargin: 20
         anchors.horizontalCenter:  parent.horizontalCenter
-
     }
-
 
     Text{
 
@@ -31,8 +29,8 @@ Item {
         anchors.top: buttonLaunchGame.bottom
         anchors.bottomMargin: 20
         anchors.horizontalCenter:  parent.horizontalCenter
-
     }
+
     Rectangle {
         id: buttonLaunchGame
         width: 180
@@ -79,6 +77,5 @@ Item {
             NumberAnimation { properties: "scale"; duration: 100; easing.type: Easing.InOutQuad ;}
         }
     }
-
 }
 
