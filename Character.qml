@@ -2,8 +2,8 @@ import QtQuick 2.0
 
 Image {
     id: player
-    width : 30
-    height :30
+    width : 50
+    height :50
 
     property string img
     property bool moveinputdown: false
@@ -18,20 +18,18 @@ Image {
         id:sprite_right
         transformOrigin: Item.TopLeft
 
-        visible: true
+        visible: isMovingRight
         anchors.centerIn: parent
-        width: 30
-        height: 30
-
+        anchors.fill: parent
         source : img
-        frameWidth: 32
-        frameHeight: 32
+        frameWidth: 64
+        frameHeight: 64
         frameCount: 3
         frameX : 0
-        frameY : 64
+        frameY : 128
         frameDuration: 200
         loops: Animation.Infinite
-        running: true
+        running: isMovingRight
         interpolate:false;
     }
     AnimatedSprite {
@@ -39,16 +37,14 @@ Image {
         transformOrigin: Item.TopLeft
 
         visible: isMovingLeft
-        anchors.centerIn: parent
-        width: 30
-        height: 30
+        anchors.fill: parent
 
         source : img
-        frameWidth: 32
-        frameHeight: 32
+        frameWidth: 64
+        frameHeight: 64
         frameCount: 3
         frameX : 0
-        frameY : 32
+        frameY : 64
         frameDuration: 200
         loops: Animation.Infinite
         running: isMovingLeft
@@ -59,8 +55,8 @@ Image {
         running: moveinputdown;
         repeat: true
         onTriggered: {
-            if ( parent.y > (game.height-30))
-                parent.y=(game.height-30)
+            if ( parent.y > (game.height-50))
+                parent.y=(game.height-50)
             else
                 parent.y+=speed;
         }
@@ -81,8 +77,8 @@ Image {
         running: moveintputright;
         repeat: true
         onTriggered: {
-            if ( parent.x > (game.width-30))
-                parent.x=(game.width-30)
+            if ( parent.x > (game.width-50))
+                parent.x=(game.width-50)
             else
                 parent.x+=speed;
         }

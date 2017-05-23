@@ -18,8 +18,8 @@ Item {
     property string txtw : "Player"
 
     function creatcomponent(){
-        character[1]=charactercomponent.createObject(parent, {"x":0, "y": game.height/2, "img": "character/ca.png", "isMovingRight" : true});
-        character[2]=charactercomponent.createObject(parent, {"x":((game.width)-30), "y": game.height/2, "img": "character/c.png", "isMovingLeft" : true});
+        character[1]=charactercomponent.createObject(parent, {"x":0, "y": game.height/2, "img": "character/robot1.png", "isMovingRight" : true});
+        character[2]=charactercomponent.createObject(parent, {"x":((game.width)-50), "y": game.height/2, "img": "character/robot2.png", "isMovingLeft" : true});
 
         textscores1 = 0
         textscores2 = 0
@@ -99,7 +99,7 @@ Item {
             if (event.isAutoRepeat) return;
             else
             {
-                missile[i]=missilecomponent.createObject(parent, {"x":character[1].x, "y": character[1].y, "img" : "qrc:/Missile/missile.png"});
+                missile[i]=missilecomponent.createObject(parent, {"x":character[1].x, "y": character[1].y, "img" : "qrc:/Missile/missile1.png"});
                 missile[i].movemisright= true
                 console.log(missile[i].movemisright)
                 i++
@@ -109,7 +109,7 @@ Item {
             if (event.isAutoRepeat) return;
             else
             {
-                missile[i]=missilecomponent.createObject(parent, {"x":character[2].x, "y": character[2].y, "img" : "qrc:/Missile/missile.png", "movemissleft" : true});
+                missile[i]=missilecomponent.createObject(parent, {"x":character[2].x, "y": character[2].y, "img" : "qrc:/Missile/missile2.png", "movemissleft" : true});
                 missile[i].movemissleft = true
                 missile[i].rotation = 180
                 i++
