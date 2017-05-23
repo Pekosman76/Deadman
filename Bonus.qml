@@ -17,12 +17,13 @@ Image {
 
     Timer{
 
-        interval: 3000
+        interval: 4000
         running: true
         repeat: true
         onTriggered: {
 
             parent.destroy()
+            game.bonustimer.restart()
         }
     }
 
@@ -33,10 +34,11 @@ Image {
         repeat: true
         onTriggered: {
 
-            console.log("XB : " + parent.x + "YB : " + parent.y + "XP : " + player2.x + "YP : " + player2.y)
-
             if (touchbonus(parent.x,parent.y))
+            {
                 parent.destroy()
+                game.bonustimer.restart()
+            }
         }
     }
 

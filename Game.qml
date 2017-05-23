@@ -42,9 +42,8 @@ Item {
     Timer{
 
         id : bonustimer
-        interval: 6000
+        interval: 8000
         running: false
-        repeat: true
         onTriggered: {
 
             bonus[1]= bonuscomponent.createObject(parent,{"x" : getNumber(), "y" : getNumber(), "img" :"qrc:/Bonus/Heart.png"})
