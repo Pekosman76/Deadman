@@ -10,7 +10,7 @@ ApplicationWindow {
 
     Game{
 
-        id : game;
+        id : game
         width: 640
         height: 480
         visible: false

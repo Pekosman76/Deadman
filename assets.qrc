@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Missile/missile.png</file>
+        <file>Missile/missile1.png</file>
+        <file>Missile/missile2.png</file>
+        <file>Bonus/Heart.png</file>
+        <file>Bonus/Star.png</file>
+        <file>character/c.png</file>
+        <file>character/ca.png</file>
+        <file>character/robot1.png</file>
+        <file>character/robot2.png</file>
+    </qresource>
+</RCC>

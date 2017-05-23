@@ -1,18 +1,1 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>character/c.png</file>
-        <file>character/ca.png</file>
-        <file>Game.qml</file>
-        <file>Character.qml</file>
-        <file>Missile.qml</file>
-        <file>Home.qml</file>
-        <file>Bonus.qml</file>
-        <file>Bonus/Star.png</file>
-        <file>Key.qml</file>
-        <file>character/robot1.png</file>
-        <file>character/robot2.png</file>
-        <file>Missile/missile2.png</file>
-        <file>Missile/missile1.png</file>
-    </qresource>
-</RCC>
+<RCC/>

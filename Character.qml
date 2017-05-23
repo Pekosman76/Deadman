@@ -12,6 +12,8 @@ Image {
     property bool moveinputleft :false
     property bool isMovingRight :false;
     property bool isMovingLeft :false;
+    property bool isMovingUp :false;
+    property bool isMovingDown :false;
     property int speed : 4
 
     AnimatedSprite {
@@ -48,6 +50,42 @@ Image {
         frameDuration: 200
         loops: Animation.Infinite
         running: isMovingLeft
+        interpolate:false;
+    }
+    AnimatedSprite {
+        id:sprite_up
+        transformOrigin: Item.TopLeft
+
+        visible: isMovingUp
+        anchors.fill: parent
+
+        source : img
+        frameWidth: 64
+        frameHeight: 64
+        frameCount: 3
+        frameX : 0
+        frameY : 0
+        frameDuration: 200
+        loops: Animation.Infinite
+        running: isMovingUp
+        interpolate:false;
+    }
+    AnimatedSprite {
+        id:sprite_down
+        transformOrigin: Item.TopLeft
+
+        visible: isMovingDown
+        anchors.fill: parent
+
+        source : img
+        frameWidth: 64
+        frameHeight: 64
+        frameCount: 3
+        frameX : 0
+        frameY : 192
+        frameDuration: 200
+        loops: Animation.Infinite
+        running: isMovingDown
         interpolate:false;
     }
     Timer {

@@ -10,6 +10,7 @@ Item{
     property string keyshoot
 
     Row{
+
         id : rowkey
         spacing : 15
 
@@ -22,7 +23,6 @@ Item{
             border.width: 5
             radius: 10
 
-
             Text {
 
                 text: keyleft
@@ -33,7 +33,6 @@ Item{
                 font.pixelSize: 20
             }
         }
-
 
         Rectangle {
 
@@ -75,6 +74,7 @@ Item{
             }
         }
     }
+
     Rectangle {
 
         width: 40
@@ -99,7 +99,6 @@ Item{
     Rectangle {
 
         id: shootk
-
         width: 40
         height: 40
         color : "#7696b7"
@@ -119,6 +118,7 @@ Item{
             font.pixelSize: 20
         }
     }
+
     Text {
         text: "SHOOT"
         font.bold: true
@@ -129,4 +129,3 @@ Item{
     }
 
 }
-
