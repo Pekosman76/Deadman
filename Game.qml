@@ -244,6 +244,7 @@ Item {
         else if(character[indexcharacter].isMovingDown === true)
         {
             missile[indexmissile].movemisdown = true
+
             missile[indexmissile].rotation = 90
         }
         else if(character[indexcharacter].isMovingUp === true)

@@ -12,12 +12,12 @@ Image {
 
     property var player1 : game.character[1]
     property var player2 : game.character[2]
-    property int range : 100
+    property int range : 50
     property string img
 
     Timer{
 
-        interval: 1
+        interval: 20
         running: true
         repeat: true
         onTriggered: {

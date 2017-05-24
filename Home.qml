@@ -92,7 +92,7 @@ Item {
         keyup: "5"
         keyleft: "1"
         keyright: "3"
-        keyshoot: "↓"
+        keyshoot: "M"
     }
     Key{
 
