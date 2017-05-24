@@ -10,21 +10,38 @@ Item {
     property var missilecomponent :Qt.createComponent("Missile.qml")
     property var bonuscomponent : Qt.createComponent("Bonus.qml")
     property var monstercomponent : Qt.createComponent("Monster.qml")
+    property var towerleftcomponent : Qt.createComponent("Towerleft.qml")
+    property var towerrightcomponent : Qt.createComponent("Towerright.qml")
+    property var towerupcomponent : Qt.createComponent("Towerup.qml")
+    property var towerdowncomponent : Qt.createComponent("Towerdown.qml")
 
     property var character :[]
     property var missile :[]
     property var bonus : []
     property var monster : []
+    property var towerleft :[]
+    property var towerup : []
+    property var towerright : []
+    property var towerdown : []
 
     property int i :1
     property int textscores1 : 0
     property int textscores2 : 0
     property string txtw : "Player"
 
+    property bool finish : false
+
     function creatcomponent(){
+        finish = false
 
         character[1]=charactercomponent.createObject(parent, {"x":0, "y": game.height/2, "img": "qrc:/character/robot1.png", "isMovingRight" : true});
         character[2]=charactercomponent.createObject(parent, {"x":((game.width)-50), "y": game.height/2, "img": "qrc:/character/robot2.png", "isMovingLeft" : true});
+
+        towerright[1] = towerrightcomponent.createObject(parent, {"x":0, "y": 120, "img": "qrc:/Ship/shipblue.png", "rotation": 90});
+        towerleft[1] = towerleftcomponent.createObject(parent, {"x":610, "y": 360, "img": "qrc:/Ship/shipred.png", "rotation" : 270});
+        towerdown[1] = towerdowncomponent.createObject(parent, {"x":480, "y": 0, "img": "qrc:/Ship/shipblue.png", "rotation" : 180});
+        towerup[1] = towerupcomponent.createObject(parent, {"x":160, "y": 450, "img": "qrc:/Ship/shipred.png"});
+
 
         textscores1 = 0
         textscores2 = 0
@@ -33,15 +50,6 @@ Item {
         i=1
     }
 
-    function destroycomponent(){
-
-        home.winner = txtw
-        bonus[1].visible = false
-        character[1].visible=false
-        character[2].visible=false
-        bonustimer.stop()
-        montsertimer.stop()
-    }
 
     Timer{
 
@@ -63,7 +71,7 @@ Item {
         running: false
         onTriggered: {
 
-            monster[1]= monstercomponent.createObject(parent,{"x" : getNumber(), "y" : 0, "img" :"qrc:/Bonus/Heart.png"})
+            monster[1]= monstercomponent.createObject(parent,{"x" : getNumber(), "y" : 0, "img" :"qrc:/Munster/ronflex.png"})
         }
     }
 
@@ -174,34 +182,13 @@ Item {
         }
     }
 
-    Rectangle{
-        width: 150
-        height: 20
-        color : "#D8D8D8"
+    Scores{
+
         anchors.top : parent.top
         anchors.horizontalCenter: parent.horizontalCenter
+        scorep1: textscores1.toString()
+        scorep2: textscores2.toString()
 
-        Row{
-            anchors.centerIn: parent
-            spacing: 5
-            Text{
-                color: "#07000d"
-                text: "Player 1 "
-            }
-            Text{
-                color: "#07000d"
-                text: textscores1.toString()
-            }
-            Text{
-                color: "#07000d"
-                text: textscores2.toString()
-            }
-
-            Text{
-                color: "#07000d"
-                text: "Player 2"
-            }
-        }
     }
     function randomNumber() {
         return Math.random()*(root.width/1.4);
@@ -210,60 +197,81 @@ Item {
     function getNumber() {
         return game.randomNumber();
     }
-    function changeanim(i,input){
+    function changeanim(indexcharacter,input){
 
         if (input === "left")
         {
-            character[i].isMovingDown=false
-            character[i].isMovingUp= false
-            character[i].isMovingRight = false
-            character[i].isMovingLeft = true
+            character[indexcharacter].isMovingDown=false
+            character[indexcharacter].isMovingUp= false
+            character[indexcharacter].isMovingRight = false
+            character[indexcharacter].isMovingLeft = true
         }
         else if (input === "right")
         {
-            character[i].isMovingDown=false;
-            character[i].isMovingUp= false;
-            character[i].isMovingLeft = false;
-            character[i].isMovingRight = true;
+            character[indexcharacter].isMovingDown=false;
+            character[indexcharacter].isMovingUp= false;
+            character[indexcharacter].isMovingLeft = false;
+            character[indexcharacter].isMovingRight = true;
         }
         else if (input === "up")
         {
-            character[i].isMovingDown=false;
-            character[i].isMovingLeft = false;
-            character[i].isMovingRight = false;
-            character[i].isMovingUp= true;
+            character[indexcharacter].isMovingDown=false;
+            character[indexcharacter].isMovingLeft = false;
+            character[indexcharacter].isMovingRight = false;
+            character[indexcharacter].isMovingUp= true;
         }
         else if (input === "down")
         {
-            character[i].isMovingUp= false;
-            character[i].isMovingLeft = false;
-            character[i].isMovingRight = false;
-            character[i].isMovingDown=true;
+            character[indexcharacter].isMovingUp= false;
+            character[indexcharacter].isMovingLeft = false;
+            character[indexcharacter].isMovingRight = false;
+            character[indexcharacter].isMovingDown=true;
         }
 
     }
 
-    function changmissdir(j,i){
+    function changmissdir(indexcharacter,indexmissile){
 
-        if(character[j].isMovingRight === true)
+        if(character[indexcharacter].isMovingRight === true)
         {
-            missile[i].movemisright = true
+            missile[indexmissile].movemisright = true
         }
-        else if(character[j].isMovingLeft === true)
+        else if(character[indexcharacter].isMovingLeft === true)
         {
-            missile[i].movemissleft = true
-            missile[i].rotation = 180
+            missile[indexmissile].movemissleft = true
+            missile[indexmissile].rotation = 180
         }
-        else if(character[j].isMovingDown === true)
+        else if(character[indexcharacter].isMovingDown === true)
         {
-            missile[i].movemisdown = true
-            missile[i].rotation = 90
+            missile[indexmissile].movemisdown = true
+            missile[indexmissile].rotation = 90
         }
-        else if(character[j].isMovingUp === true)
+        else if(character[indexcharacter].isMovingUp === true)
         {
-            missile[i].movemisup = true
-            missile[i].rotation = 270
+            missile[indexmissile].movemisup = true
+            missile[indexmissile].rotation = 270
         }
+    }
+
+    function restart(){
+
+        finish = true
+        character[1].destroy()
+        character[2].destroy()
+
+        towerright[1].destroy()
+        towerleft[1].destroy()
+        towerdown[1].destroy()
+        towerup[1].destroy()
+
+        home.winner = txtw
+        bonustimer.stop()
+        montsertimer.stop()
+
+        home.visible= true
+        home.focus = true
+        game.visible =false
+        game.focus = false
     }
 }
 

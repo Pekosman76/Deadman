@@ -1,17 +1,32 @@
 import QtQuick 2.0
 
-Text{
+Rectangle{
+    width: 150
+    height: 20
+    color : "#D8D8D8"
+    property string scorep1
+    property string scorep2
 
+    Row{
+        anchors.centerIn: parent
+        spacing: 5
+        Text{
+            color: "#07000d"
+            text: "Player 1 "
+        }
+        Text{
+            color: "#07000d"
+            text: scorep1
+        }
+        Text{
+            color: "#07000d"
+            text: scorep2
+        }
 
-    id: labelscore;
-    color: "#07000d"
-    text: parent.textscores.toString()
-    focus: true;
-    textFormat: Text.PlainText;
-    fontSizeMode: Text.Fit;
-    minimumPixelSize: 10;
-    verticalAlignment: Text.AlignVCenter;
-    horizontalAlignment: Text.AlignHCenter;
-
+        Text{
+            color: "#07000d"
+            text: "Player 2"
+        }
+    }
 }
 

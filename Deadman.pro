@@ -22,5 +22,9 @@ DISTFILES += \
     Game.qml \
     Character.qml \
     Bonus.qml \
-    Monster.qml
+    Monster.qml \
+    Towerleft.qml \
+    Towerright.qml \
+    Towerup.qml \
+    Towerdown.qml
 

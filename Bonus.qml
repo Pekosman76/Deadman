@@ -34,7 +34,12 @@ Image {
         repeat: true
         onTriggered: {
 
-            if (touchbonus(parent.x,parent.y))
+            if(game.finish === true)
+            {
+                parent.destroy()
+            }
+
+            else if (touchbonus(parent.x,parent.y))
             {
                 parent.destroy()
             }

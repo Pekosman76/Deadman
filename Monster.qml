@@ -3,16 +3,16 @@ import QtQuick 2.0
 Image {
 
     id : monster
-    width: 150
-    height:150
-    //transformOrigin: Item.Center
+    width: 100
+    height:100
+    transformOrigin: Item.Center
     source: img
     z:3
     fillMode: Image.Stretch
 
     property var player1 : game.character[1]
     property var player2 : game.character[2]
-    property int range : 150
+    property int range : 100
     property string img
 
     Timer{
@@ -20,9 +20,7 @@ Image {
         interval: 1
         running: true
         repeat: true
-        onTriggered: {
-            console.log(parent.y)
-
+        onTriggered: {         
             parent.y+=5
 
             if(parent.y >630 )
@@ -43,7 +41,7 @@ Image {
         {
             player1.destroy()
             game.txtw = "Player 2"
-            restart()
+            game.restart()
             return true
         }
 
@@ -51,17 +49,10 @@ Image {
         {
             player2.destroy()
             game.txtw = "Player 1"
-            restart()
+           game.restart()
             return true
         }
         else return false
     }
 
-    function restart(){
-        game.destroycomponent()
-        home.visible= true
-        home.focus = true
-        game.visible =false
-        game.focus = false
-    }
 }

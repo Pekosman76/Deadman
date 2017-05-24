@@ -29,7 +29,12 @@ Image {
         repeat: true
         onTriggered: {
 
-            if (movemisright==true)
+            if(game.finish === true)
+            {
+                parent.destroy()
+            }
+
+            else if (movemisright==true)
             {
                 parent.x+=speedmis
 
@@ -74,7 +79,6 @@ Image {
             if (parent.x <player1.x+range && parent.x >player1.x-range  && parent.y <player1.y+range && parent.y >player1.y-range && game.textscores2!==2)
             {
                 game.textscores2 +=1
-                player1.opocityanimation.start()
                 parent.destroy()
             }
 
@@ -84,7 +88,9 @@ Image {
                 game.textscores2 +=1
                 parent.destroy()
                 game.txtw = "Player 2"
-                restart()
+                console.log(game.textscores2)
+                game.restart()
+
             }
 
         }
@@ -94,7 +100,6 @@ Image {
             if (parent.x <player2.x+range && parent.x >player2.x-range  && parent.y <player2.y+range && parent.y >player2.y-range && game.textscores1!==2)
             {
                 game.textscores1 +=1
-                player2.opocityanimation.start()
                 parent.destroy()
             }
             else if (parent.x <player2.x+range && parent.x >player2.x-range  && parent.y <player2.y+range && parent.y >player2.y-range && game.textscores1===2)
@@ -102,16 +107,11 @@ Image {
                 game.textscores1 +=1
                 parent.destroy()
                 game.txtw = "Player 1"
-                restart()
+                 console.log(game.textscores1)
+                game.restart()
             }
         }
 
-        function restart(){
-            game.destroycomponent()
-            home.visible= true
-            home.focus = true
-            game.visible =false
-            game.focus = false
-        }
+
     }
 }

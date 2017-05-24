@@ -90,24 +90,6 @@ Image {
         interpolate:false;
     }
 
-    NumberAnimation on opacity {
-           id: opocityanimation
-           from: 1
-           to: 0.5
-           running: false
-           duration: 2000
-           onStopped: {
-               opocityanimation2.start()
-           }
-       }
-    NumberAnimation on opacity {
-           id: opocityanimation2
-           from: 0.5
-           to: 1
-           running: false
-           duration: 2000
-       }
-
     Timer {
         interval: 1;
         running: moveinputdown;
