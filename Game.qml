@@ -9,10 +9,12 @@ Item {
     property var charactercomponent :Qt.createComponent("Character.qml")
     property var missilecomponent :Qt.createComponent("Missile.qml")
     property var bonuscomponent : Qt.createComponent("Bonus.qml")
+    property var monstercomponent : Qt.createComponent("Monster.qml")
 
     property var character :[]
     property var missile :[]
     property var bonus : []
+    property var monster : []
 
     property int i :1
     property int textscores1 : 0
@@ -27,6 +29,7 @@ Item {
         textscores1 = 0
         textscores2 = 0
         bonustimer.restart()
+        montsertimer.restart()
         i=1
     }
 
@@ -37,16 +40,30 @@ Item {
         character[1].visible=false
         character[2].visible=false
         bonustimer.stop()
+        montsertimer.stop()
     }
 
     Timer{
 
         id : bonustimer
         interval: 8000
+        repeat: true
         running: false
         onTriggered: {
 
             bonus[1]= bonuscomponent.createObject(parent,{"x" : getNumber(), "y" : getNumber(), "img" :"qrc:/Bonus/Heart.png"})
+        }
+    }
+
+    Timer{
+
+        id : montsertimer
+        interval: 16000
+        repeat: true
+        running: false
+        onTriggered: {
+
+            monster[1]= monstercomponent.createObject(parent,{"x" : getNumber(), "y" : 0, "img" :"qrc:/Bonus/Heart.png"})
         }
     }
 

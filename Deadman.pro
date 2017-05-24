@@ -21,5 +21,6 @@ DISTFILES += \
     Home.qml \
     Game.qml \
     Character.qml \
-    Bonus.qml
+    Bonus.qml \
+    Monster.qml
 

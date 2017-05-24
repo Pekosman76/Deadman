@@ -9,6 +9,7 @@ Image {
     source: img
     z:3
     fillMode: Image.Stretch
+    transformOrigin: Item.Center
 
     property var player1 : game.character[1]
     property var player2 : game.character[2]
@@ -23,7 +24,6 @@ Image {
         onTriggered: {
 
             parent.destroy()
-            game.bonustimer.restart()
         }
     }
 
@@ -37,7 +37,6 @@ Image {
             if (touchbonus(parent.x,parent.y))
             {
                 parent.destroy()
-                game.bonustimer.restart()
             }
         }
     }

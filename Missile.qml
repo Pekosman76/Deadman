@@ -7,6 +7,7 @@ Image {
     width : 30
     height :30
     source : img
+    transformOrigin: Item.Center
 
     property string img
     property bool movemisright: false
@@ -73,6 +74,7 @@ Image {
             if (parent.x <player1.x+range && parent.x >player1.x-range  && parent.y <player1.y+range && parent.y >player1.y-range && game.textscores2!==2)
             {
                 game.textscores2 +=1
+                player1.opocityanimation.start()
                 parent.destroy()
             }
 
@@ -92,6 +94,7 @@ Image {
             if (parent.x <player2.x+range && parent.x >player2.x-range  && parent.y <player2.y+range && parent.y >player2.y-range && game.textscores1!==2)
             {
                 game.textscores1 +=1
+                player2.opocityanimation.start()
                 parent.destroy()
             }
             else if (parent.x <player2.x+range && parent.x >player2.x-range  && parent.y <player2.y+range && parent.y >player2.y-range && game.textscores1===2)

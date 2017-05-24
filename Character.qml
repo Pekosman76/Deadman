@@ -4,6 +4,7 @@ Image {
     id: player
     width : 50
     height :50
+    transformOrigin: Item.Center
 
     property string img
     property bool moveinputdown: false
@@ -88,6 +89,25 @@ Image {
         running: isMovingDown
         interpolate:false;
     }
+
+    NumberAnimation on opacity {
+           id: opocityanimation
+           from: 1
+           to: 0.5
+           running: false
+           duration: 2000
+           onStopped: {
+               opocityanimation2.start()
+           }
+       }
+    NumberAnimation on opacity {
+           id: opocityanimation2
+           from: 0.5
+           to: 1
+           running: false
+           duration: 2000
+       }
+
     Timer {
         interval: 1;
         running: moveinputdown;
