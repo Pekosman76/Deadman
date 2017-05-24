@@ -20,15 +20,20 @@ Image {
         interval: 1
         running: true
         repeat: true
-        onTriggered: {         
+        onTriggered: {
             parent.y+=5
 
-            if(parent.y >630 )
+            if(game.finish === true)
             {
                 parent.destroy()
             }
 
-            if (touchmonster(parent.x,parent.y))
+            else if(parent.y >630 )
+            {
+                parent.destroy()
+            }
+
+            else if (touchmonster(parent.x,parent.y))
             {
                 parent.destroy()
             }
@@ -49,7 +54,7 @@ Image {
         {
             player2.destroy()
             game.txtw = "Player 1"
-           game.restart()
+            game.restart()
             return true
         }
         else return false

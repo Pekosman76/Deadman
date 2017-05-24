@@ -88,7 +88,6 @@ Image {
                 game.textscores2 +=1
                 parent.destroy()
                 game.txtw = "Player 2"
-                console.log(game.textscores2)
                 game.restart()
 
             }
@@ -107,7 +106,6 @@ Image {
                 game.textscores1 +=1
                 parent.destroy()
                 game.txtw = "Player 1"
-                 console.log(game.textscores1)
                 game.restart()
             }
         }
