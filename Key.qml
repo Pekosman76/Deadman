@@ -123,11 +123,12 @@ Item{
 
     Text {
         text: "SHOOT"
+        font.family: "Ubuntu"
         font.bold: true
         anchors.verticalCenter: shootk.verticalCenter
         anchors.right : shootk.left
         anchors.rightMargin: 10
-        font.pixelSize: 10
+        font.pixelSize: 14
     }
 
 }

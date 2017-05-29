@@ -189,7 +189,6 @@ Image {
         anchors.horizontalCenter: parent.horizontalCenter
         scorep1: textscores1.toString()
         scorep2: textscores2.toString()
-
     }
     function randomNumber() {
         return Math.random()*(root.width/1.4);
@@ -270,10 +269,11 @@ Image {
         bonustimer.stop()
         montsertimer.stop()
 
-        home.visible= true
-        home.focus = true
         game.visible =false
         game.focus = false
+
+        home.focus = true
+        home.visible= true
     }
 }
 

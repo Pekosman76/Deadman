@@ -8,8 +8,6 @@ ApplicationWindow {
     width: 640
     height:480
 
-
-
     Game{
 
         id : game

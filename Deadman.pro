@@ -26,5 +26,6 @@ DISTFILES += \
     Towerleft.qml \
     Towerright.qml \
     Towerup.qml \
-    Towerdown.qml
+    Towerdown.qml \
+    HomeMissile.qml
 
