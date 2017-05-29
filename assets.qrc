@@ -8,5 +8,6 @@
         <file>Munster/ronflex.png</file>
         <file>Ship/shipred.png</file>
         <file>Ship/shipblue.png</file>
+        <file>Background/back.png</file>
     </qresource>
 </RCC>

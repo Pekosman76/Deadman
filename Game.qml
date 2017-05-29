@@ -1,10 +1,11 @@
 import QtQuick 2.0
 
-Item {
+Image {
 
     width: parent.width
     height: parent.height
     focus  : true
+    source : "qrc:/Background/back.png"
 
     property var charactercomponent :Qt.createComponent("Character.qml")
     property var missilecomponent :Qt.createComponent("Missile.qml")
