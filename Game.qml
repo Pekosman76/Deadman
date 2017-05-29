@@ -37,10 +37,10 @@ Item {
         character[1]=charactercomponent.createObject(parent, {"x":0, "y": game.height/2, "img": "qrc:/character/robot1.png", "isMovingRight" : true});
         character[2]=charactercomponent.createObject(parent, {"x":((game.width)-50), "y": game.height/2, "img": "qrc:/character/robot2.png", "isMovingLeft" : true});
 
-        towerright[1] = towerrightcomponent.createObject(parent, {"x":0, "y": 120, "img": "qrc:/Ship/shipblue.png", "rotation": 90});
-        towerleft[1] = towerleftcomponent.createObject(parent, {"x":610, "y": 360, "img": "qrc:/Ship/shipred.png", "rotation" : 270});
-        towerdown[1] = towerdowncomponent.createObject(parent, {"x":480, "y": 0, "img": "qrc:/Ship/shipblue.png", "rotation" : 180});
-        towerup[1] = towerupcomponent.createObject(parent, {"x":160, "y": 450, "img": "qrc:/Ship/shipred.png"});
+        towerright[1] = towerrightcomponent.createObject(parent, {"x":0, "y": 120, "img": "qrc:/Ship/shipblue.png", "rotation": 90, "movedown" : true});
+        towerleft[1] = towerleftcomponent.createObject(parent, {"x":610, "y": 360, "img": "qrc:/Ship/shipred.png", "rotation" : 270, "moveup" : true});
+        towerdown[1] = towerdowncomponent.createObject(parent, {"x":480, "y": 0, "img": "qrc:/Ship/shipblue.png", "rotation" : 180, "moveright": true});
+        towerup[1] = towerupcomponent.createObject(parent, {"x":160, "y": 450, "img": "qrc:/Ship/shipred.png", "moveleft": true});
 
 
         textscores1 = 0

@@ -24,7 +24,7 @@ Image {
 
     Timer {
 
-        interval: 1
+        interval: 15
         running: true
         repeat: true
         onTriggered: {

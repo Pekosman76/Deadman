@@ -91,7 +91,7 @@ Image {
     }
 
     Timer {
-        interval: 1;
+        interval: 15;
         running: moveinputdown;
         repeat: true
         onTriggered: {
@@ -102,7 +102,7 @@ Image {
         }
     }
     Timer {
-        interval: 1;
+        interval: 15;
         running: moveinputup;
         repeat: true
         onTriggered: {
@@ -113,7 +113,7 @@ Image {
         }
     }
     Timer {
-        interval: 1;
+        interval: 15;
         running: moveintputright;
         repeat: true
         onTriggered: {
@@ -124,7 +124,7 @@ Image {
         }
     }
     Timer {
-        interval: 1;
+        interval: 15;
         running: moveinputleft;
         repeat: true
         onTriggered: {

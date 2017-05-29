@@ -10,6 +10,9 @@ Image {
     transformOrigin: Item.Center
 
     property string img
+    property bool moveup : false
+    property bool movedown :false
+    property int speed : 4
 
     Timer {
 
@@ -23,6 +26,37 @@ Image {
             game.missile[game.i].rotation = 180
             game.i+=1
 
+        }
+    }
+
+    Timer {
+        interval: 20;
+        running: movedown;
+        repeat: true
+        onTriggered: {
+            if ( parent.y > (game.height-30))
+            {
+                parent.y=(game.height-30)
+                moveup = true
+                movedown = false
+            }
+            else
+                parent.y+=speed;
+        }
+    }
+    Timer {
+        interval: 20;
+        running: moveup;
+        repeat: true
+        onTriggered: {
+            if ( parent.y<0)
+            {
+                parent.y=0
+                movedown = true
+                moveup = false
+            }
+            else
+                parent.y-=speed;
         }
     }
 }

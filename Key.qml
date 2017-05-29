@@ -9,6 +9,8 @@ Item{
     property string keyup
     property string keyshoot
 
+
+
     Row{
 
         id : rowkey
