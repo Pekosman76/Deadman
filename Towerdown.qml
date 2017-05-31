@@ -12,7 +12,7 @@ Image {
     property string img
     property bool moveright : false
     property bool moveleft :false
-    property int speed : 4
+    property int speed : 2
 
     Timer {
 

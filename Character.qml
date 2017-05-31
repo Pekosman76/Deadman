@@ -15,7 +15,7 @@ Image {
     property bool isMovingLeft :false;
     property bool isMovingUp :false;
     property bool isMovingDown :false;
-    property int speed : 4
+    property int speed : 2
 
     AnimatedSprite {
         id:sprite_right

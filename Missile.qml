@@ -20,7 +20,7 @@ Image {
 
     property bool p1 : false
     property int range : 20
-    property int speedmis : 6
+    property int speedmis : 2
 
     Timer {
 
